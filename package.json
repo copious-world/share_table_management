@@ -1,0 +1,28 @@
+{
+  "name": "share_table_management",
+  "version": "1.0.0",
+  "description": "This module is a library for utlitizing an outline for managing processes that share tables each requiring a selection of a communication option.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copious-world/share_table_management.git"
+  },
+  "keywords": [
+    "client-server",
+    "IPC",
+    "process-control",
+    "communication-configuration"
+  ],
+  "author": "R. Leddy",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/copious-world/share_table_management/issues"
+  },
+  "homepage": "https://github.com/copious-world/share_table_management#readme"
+}
