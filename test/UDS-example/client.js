@@ -1,11 +1,12 @@
 var assert = require('assert');
-assert(process.argv.length == 6, 'node client.js <port or path> <packet size> <packet count> <proc number>');
+
+
+assert(process.argv.length >= 6, 'node client.js <port or path> <packet size> <packet count> <proc number> (<use pipe index>)');
 
 var net = require('net');
 var crypto = require('crypto');
 
-let options = {'path': process.argv[2]};
-console.log('options: ' + JSON.stringify(options));
+let srv_base_path = process.argv[2];
 
 var packetSize = parseInt(process.argv[3]);
 assert(!isNaN(packetSize), 'bad packet size');
@@ -20,7 +21,12 @@ var pNum = parseInt(process.argv[5]);
 assert(!isNaN(pNum), 'bad proc number');
 console.log('proc number: ' + pNum);
 
+if ( process.argv.length > 6 ) {
+    srv_base_path += `-${pNum}`
+}
 
+let options = {'path': srv_base_path };
+console.log('options: ' + JSON.stringify(options));
 
 var client = net.connect(options, function() {
     console.log('client connected');
@@ -47,6 +53,7 @@ client.on('data', function(data) {
     if (printedFirst == false) {
         console.log('client received: ' + data);
         printedFirst = true;
+        client.write(`name:${pNum}`);
     }
     else {
         currPacketCount += 1;
