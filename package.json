@@ -1,5 +1,5 @@
 {
-  "name": "share_table_management",
+  "name": "shared-table-types",
   "version": "1.0.0",
   "description": "This module is a library for utlitizing an outline for managing processes that share tables each requiring a selection of a communication option.",
   "main": "index.js",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/copious-world/share_table_management/issues"
   },
-  "homepage": "https://github.com/copious-world/share_table_management#readme"
+  "homepage": "https://github.com/copious-world/share_table_management#readme",
+  "dependencies": {
+    "message-relay-services": "^0.9.22"
+  }
 }

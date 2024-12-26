@@ -1,4 +1,12 @@
 const assert = require('assert');
+const {spawn} = require('child_process')
+
+
+let sp = spawn('node',['unspawned.js'], {
+                        stdio: ['inherit', 'inherit', 'inherit', 'ipc']})
+sp.on('message',(msg) => {
+    console.log(`got a message: "${msg}"`)
+})
 
 assert(process.argv.length == 3, 'node server.js <domain socket path>');
 
