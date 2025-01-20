@@ -1,6 +1,6 @@
 {
   "name": "shared-table-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This module is a library for utlitizing an outline for managing processes that share tables each requiring a selection of a communication option.",
   "main": "index.js",
   "directories": {
