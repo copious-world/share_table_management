@@ -1,7 +1,7 @@
 
 
-const ProcJSTableManager = require('../lib/node_types/table_sharing_node')
-const ChildProcDBComInterface = require('../lib/client_com')
+const ProcJSTableManager = require('./lib/node_types/table_sharing_node')
+const ChildProcDBComInterface = require('./lib/client_com')
 
 
 

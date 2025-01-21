@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "This module is a library for utlitizing an outline for managing processes that share tables each requiring a selection of a communication option.",
   "main": "index.js",
+  "bin" : {
+    "shared-table-types" : "./bin/index.js"
+  },
   "directories": {
     "lib": "lib"
   },
