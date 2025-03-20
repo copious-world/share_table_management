@@ -48,3 +48,7 @@ const ManagerProc = (conf.table_sharing_class !== undefined) ? require(conf.tabl
 */
 
 let pjtm = new ManagerProc(conf)
+
+process.on('SIGINT', () => {
+    pjtm.release_and_exit()
+})

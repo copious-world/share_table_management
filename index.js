@@ -5,5 +5,5 @@ const ChildProcDBComInterface = require('./lib/client_com')
 
 
 
-module.exports.ChildProcDBComInterface = ChildProcDBComInterface
 module.exports.ProcJSTableManager = ProcJSTableManager
+module.exports.ChildProcDBComInterface = ChildProcDBComInterface
