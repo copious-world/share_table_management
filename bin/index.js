@@ -31,6 +31,7 @@ let default_conf = {
     }
 }
 
+
 let conf = default_conf
 if ( process.argv.length > 2 ) {
     let conf_file = fs.readFileSync(process.argv[process.argv.length-1])
