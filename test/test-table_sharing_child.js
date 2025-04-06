@@ -1,15 +1,15 @@
 
-
+// ANCIENT HISTORY
 const ChildProcDBCom = require('../lib/client_com')
 
 
 console.time("START-Table Sharing Child")
 
 
-let cpdc = new ChildProcDBCom("shared","test")
-cpdc.initialize({
+let cpdc = new ChildProcDBCom({
     "continue_as_standalone" : false
 })
+
 
 let topic = "admin"
 let path = "test"
