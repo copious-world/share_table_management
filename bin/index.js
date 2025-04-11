@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 const fs = require('fs')
 
@@ -40,16 +41,27 @@ if ( process.argv.length > 2 ) {
     }
 }
 
+let ManagerProc = false;
+let sharing_module_package_name = conf.sharing_module
+if ( sharing_module_package_name ) {
+    const module = require(sharing_module_package_name)
+    ManagerProc = module[conf.table_sharing_class]
+} else {
+    ManagerProc = (conf.table_sharing_class !== undefined) ? require(conf.table_sharing_class) : require('../lib/node_types/table_sharing_node')
+}
 
 
-const ManagerProc = (conf.table_sharing_class !== undefined) ? require(conf.table_sharing_class) : require('../lib/node_types/table_sharing_node')
 
 /*
     let ClientOfParent = require(conf.parent_command_conf.parent_com)
 */
 
-let pjtm = new ManagerProc(conf)
+if ( ManagerProc ) {
+    let pjtm = new ManagerProc(conf)
 
-process.on('SIGINT', () => {
-    pjtm.release_and_exit()
-})
+    process.on('SIGINT', () => {
+        pjtm.release_and_exit()
+    })
+} else {
+    console.log("Manager proc")
+}
