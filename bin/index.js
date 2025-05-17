@@ -48,7 +48,7 @@ if ( sharing_module_package_name ) {
     const module = require(sharing_module_package_name)
     ManagerProc = module[conf.table_sharing_class]
 } else {
-    ManagerProc = (conf.table_sharing_class !== undefined) ? require(conf.table_sharing_class) : require('../lib/node_types/table_sharing_node')
+    ManagerProc = !!(conf.table_sharing_class) ? require(conf.table_sharing_class) : require('../lib/node_types/table_sharing_node')
 }
 
 
