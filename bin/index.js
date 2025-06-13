@@ -40,6 +40,14 @@ if ( process.argv.length > 2 ) {
     if ( conf_file ) {
         conf = JSON.parse(conf_file.toString())
     }
+} else {
+    try {
+        let conf_file = fs.readFileSync('shared-table.conf')
+        if ( conf_file ) {
+            conf = JSON.parse(conf_file.toString())
+        }
+    } catch (e) {
+    }
 }
 
 let ManagerProc = false;
